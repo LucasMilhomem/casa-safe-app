@@ -1,10 +1,14 @@
-import { Card } from '@rneui/themed';
+import { Card, Text } from '@rneui/themed';
 import { ScrollView, StyleSheet, View } from 'react-native';
-import { Icon } from '@rneui/themed';
-import { Text } from '@rneui/themed';
+import BellComponent from '../component/BellComponent';
+import WebSocketService from '../service/WebSocketService';
 
 export default function Home(){
-    return (
+    var ws = new WebSocketService();
+
+    ws.initWS();
+    
+    return (        
         <>
         <ScrollView>
             <View style={styles.container}>
@@ -12,15 +16,7 @@ export default function Home(){
                     <Card.Title><Text h2>DISPOSITIVOS</Text></Card.Title>
                     <Card.Divider />
                     <View style={styles.items}>
-                        <View style={styles.icon}>
-                            <Text h4>Campainha</Text>
-                            <Icon
-                                name='bell'
-                                type='font-awesome'
-                                reverse={true}
-                                size={40}
-                            />
-                        </View>
+                        <BellComponent websocket={ws}/>
                     </View>
                 </Card>
             </View>
@@ -40,8 +36,4 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         paddingHorizontal: 10,
     },
-    icon: {
-        flexBasis: "auto",
-        flexGrow: 1,
-    }
 });
