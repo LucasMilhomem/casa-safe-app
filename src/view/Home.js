@@ -1,6 +1,6 @@
 import { Card, Text } from '@rneui/themed';
 import { ScrollView, StyleSheet, View } from 'react-native';
-import BellComponent from '../component/BellComponent';
+import BellDeviceComponent from '../component/BellDeviceComponent';
 import WebSocketService from '../service/WebSocketService';
 
 export default function Home(){
@@ -16,7 +16,7 @@ export default function Home(){
                     <Card.Title><Text h2>DISPOSITIVOS</Text></Card.Title>
                     <Card.Divider />
                     <View style={styles.items}>
-                        <BellComponent websocket={ws}/>
+                        <BellDeviceComponent websocket={ws}/>
                     </View>
                 </Card>
             </View>
